@@ -106,7 +106,12 @@ public class Polynomial {
     }
 
     public double getValue(double x) {
-        return getValue(x, getDegree());
+        //return getValue(x, getDegree());
+        double result = getCoefficient(getDegree());
+        for (int i = getDegree() - 1; i >= 0; i--)
+            result = result * x + getCoefficient(i);
+
+        return result;
     }
 
     private double getValue(double x, int degree) {
